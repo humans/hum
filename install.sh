@@ -15,4 +15,4 @@ fi
 tar -xvf php-micro.tar.gz
 cat php-micro.tar.gz hum-cli > hum
 chmod +x hum
-hum
+hum setup
