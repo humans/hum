@@ -26,8 +26,11 @@ class InstallPhp extends Command
 
         exec('add-apt-repository --yes ppa:ondrej/php');
         exec("sed -i 's/mantic/jammy/g' /etc/apt/sources.list.d/ondrej-ubuntu-php-mantic.sources");
-        exec('apt update');
-        exec("apt install --yes --quiet --quiet {$php} {$php}-fpm");
+        exec('apt update --yes');
+        #  {$php}-gd {$php}-imagick
+        #  {$php}-intl
+        exec("apt install --yes --quiet --quiet {$php} {$php}-fpm {$php}-mysql {$php}-redis {$php}-sqlite3 {$php}-swoole {$php}-memcached {$php}-curl {$php}-cli {$php}-ssh2 {$php}-zip php-pear");
+        exec("pecl install redis");
         exec("service {$php} start");
     }
 
